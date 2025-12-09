@@ -1,0 +1,250 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 14 165 233;
+    --color-alfadoor-gold: 197 165 114;
+    --color-alfadoor-brown: 139 105 20;
+  }
+
+  * {
+    @apply border-gray-200 dark:border-gray-700;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 dark:bg-alfadoor-darker dark:text-gray-100;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-primary-600 text-white rounded-lg font-medium
+           hover:bg-primary-700 active:bg-primary-800
+           transition-colors duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-gray-100 text-gray-700 rounded-lg font-medium
+           hover:bg-gray-200 active:bg-gray-300
+           dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700
+           transition-colors duration-150;
+  }
+
+  .btn-success {
+    @apply px-4 py-2 bg-emerald-600 text-white rounded-lg font-medium
+           hover:bg-emerald-700 active:bg-emerald-800
+           transition-colors duration-150;
+  }
+
+  .btn-danger {
+    @apply px-4 py-2 bg-red-600 text-white rounded-lg font-medium
+           hover:bg-red-700 active:bg-red-800
+           transition-colors duration-150;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700;
+  }
+
+  .card-header {
+    @apply px-6 py-4 border-b border-gray-200 dark:border-gray-700;
+  }
+
+  .card-body {
+    @apply p-6;
+  }
+
+  .input {
+    @apply w-full px-4 py-2.5 rounded-lg border border-gray-300
+           bg-white dark:bg-gray-900 dark:border-gray-600
+           focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+           dark:focus:ring-primary-400 dark:focus:border-primary-400
+           placeholder-gray-400 dark:placeholder-gray-500
+           transition-colors duration-150;
+  }
+
+  .select {
+    @apply w-full px-4 py-2.5 rounded-lg border border-gray-300
+           bg-white dark:bg-gray-900 dark:border-gray-600
+           focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+           transition-colors duration-150;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400;
+  }
+
+  .badge-warning {
+    @apply bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400;
+  }
+
+  .badge-danger {
+    @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400;
+  }
+
+  .badge-info {
+    @apply bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400;
+  }
+
+  .stat-card {
+    @apply card p-6 flex flex-col;
+  }
+
+  .stat-value {
+    @apply text-3xl font-bold text-gray-900 dark:text-white;
+  }
+
+  .stat-label {
+    @apply text-sm font-medium text-gray-500 dark:text-gray-400 mt-1;
+  }
+
+  .stat-change {
+    @apply text-sm font-medium mt-2 flex items-center gap-1;
+  }
+
+  .stat-change-positive {
+    @apply text-emerald-600 dark:text-emerald-400;
+  }
+
+  .stat-change-negative {
+    @apply text-red-600 dark:text-red-400;
+  }
+
+  .table-container {
+    @apply overflow-x-auto;
+  }
+
+  .table {
+    @apply w-full text-sm text-left;
+  }
+
+  .table th {
+    @apply px-6 py-3 bg-gray-50 dark:bg-gray-900 text-xs font-semibold
+           text-gray-600 dark:text-gray-400 uppercase tracking-wider;
+  }
+
+  .table td {
+    @apply px-6 py-4 whitespace-nowrap;
+  }
+
+  .table tbody tr {
+    @apply border-b border-gray-100 dark:border-gray-700/50
+           hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg font-medium
+           text-gray-600 dark:text-gray-400
+           hover:bg-gray-100 dark:hover:bg-gray-800
+           hover:text-gray-900 dark:hover:text-white
+           transition-colors duration-150;
+  }
+
+  .sidebar-link-active {
+    @apply bg-primary-50 dark:bg-primary-900/20
+           text-primary-700 dark:text-primary-400
+           hover:bg-primary-100 dark:hover:bg-primary-900/30;
+  }
+
+  .pipeline-column {
+    @apply bg-gray-50 dark:bg-gray-900/50 rounded-xl p-4 min-w-[300px];
+  }
+
+  .pipeline-card {
+    @apply bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700
+           hover:shadow-md transition-shadow cursor-grab active:cursor-grabbing;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.gray.400') transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: theme('colors.gray.400');
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: theme('colors.gray.500');
+  }
+
+  .gradient-gold {
+    background: linear-gradient(135deg, #C5A572 0%, #8B6914 100%);
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #C5A572 0%, #8B6914 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Custom animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* RTL Support */
+[dir="rtl"] .sidebar-link {
+  @apply flex-row-reverse;
+}
